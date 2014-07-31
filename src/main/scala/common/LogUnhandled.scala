@@ -38,7 +38,7 @@ trait LogUnhandled { this: Actor with ActorLogging =>
     case msg => log warning s"Unhandled message $msg in actor ${self.path}"
   }
 
-  val errorgOnUnhandled: Receive = {
+  val errorOnUnhandled: Receive = {
     case msg => log error s"Unhandled message $msg in actor ${self.path}"
   }
 }
