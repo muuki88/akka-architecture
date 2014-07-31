@@ -1,6 +1,9 @@
 # Akka Architecture
 
 This sample projects aims to provide a pattern for building akka applications.
+See the [discussion](https://groups.google.com/forum/#!topic/akka-user/Ve4KMBApuQQ)
+on the akka mailing list.
+
 
 ## Main Goals
 
