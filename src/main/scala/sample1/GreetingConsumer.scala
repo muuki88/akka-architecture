@@ -1,4 +1,4 @@
-package greeter
+package sample1
 
 import akka.actor.ActorRef
 

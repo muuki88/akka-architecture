@@ -1,4 +1,4 @@
-package greeter
+package sample1
 
 import akka.actor._
 import akka.actor.Actor.Receive
@@ -38,7 +38,7 @@ import scala.concurrent.{ ExecutionContext, Future }
  */
 trait GreetingService { this: Actor =>
 
-  import GreetingSerivce._
+  import GreetingService._
 
   /** Define an execution context for Future executions */
   implicit val executionContext: ExecutionContext
@@ -97,7 +97,7 @@ trait GreetingService { this: Actor =>
  *  
  *  If you want to provide your own service implement the [[GreetingSerivce]] trait.
  */
-object GreetingSerivce {
+object GreetingService {
 
   /**
    * Send this message to receive a [[Greeting]] message
@@ -126,7 +126,7 @@ object GreetingSerivce {
  */
 trait GreetingServiceConsumer {
 
-  import GreetingSerivce._
+  import GreetingService._
 
   /**
    * You must provide an [[ActorRef]] to the [[GreetingService]]

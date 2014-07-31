@@ -1,14 +1,18 @@
-package greeter
+package sample1
 
 import akka.actor._
 import akka.util.Timeout
 import scala.concurrent.duration._
 import scala.concurrent.Await
 
+/**
+ * Small example of how to instantiate an actor system
+ * and using the defined [[GreetingService]] api.
+ */
 object GreeterApp extends App {
 
-  println("Starting...")
   val system = ActorSystem("greetings")
+  system.log.info("Greeter system started")
   
   val service = system.actorOf(Props[GreetingActor], "greeter")
   val greeter = new GreetingConsumer(service)
@@ -22,10 +26,10 @@ object GreeterApp extends App {
   val de = greeter greet "de"
   val fr = greeter greet "fr"
   
-  println("English: " + Await.result(en, timeout.duration))
-  println("German : " + Await.result(de, timeout.duration))
-  println("French : " + Await.result(fr, timeout.duration))
+  system.log.info("English: " + Await.result(en, timeout.duration))
+  system.log.info("German : " + Await.result(de, timeout.duration))
+  system.log.info("French : " + Await.result(fr, timeout.duration))
   
+  system.log.info("Shutdown actor system")
   system.shutdown()
-  println("Shutdown")
 }
